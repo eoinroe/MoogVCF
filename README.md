@@ -9,10 +9,13 @@ How to use the filter:
     // Moog filter object
     MoogVCF moogVCF;
     
-    float filterType = four_pole_low_pass;
-	  moogVCF.set_filter_type(filterType);
+    float filterCutoff = 1000.0f;
+    float filterResonance = 0.9f;
     
     // Calculate new filter coefficients
-	  moogVCF.calculate_coefficients(audioSampleRate, filterCutoff, resonance);
+	  moogVCF.calculate_coefficients(audioSampleRate, filterCutoff, filterResonance);
     
     float out = moogVCF.process(in);
+    
+
+An interesting property of this filter is that for resonance values greater than 1 it begins to self-oscillate.
