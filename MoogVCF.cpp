@@ -43,7 +43,7 @@ float MoogVCF::process(float in)
 	float feedback_loop = in - ( (delayed_filter_output - (in * gComp)) * gRes * 4.0f );
 
 	// Use the hyperbolic tangent function to approximate the nonlinearity of an analog circuit
-	float nonlinearity = tanh (feedback_loop);
+	float nonlinearity = tanhf (feedback_loop);
 
     float filter_out = 0.0f;
 	float summing_junction = 0.0f;
